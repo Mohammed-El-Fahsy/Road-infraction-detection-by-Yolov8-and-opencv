@@ -1,0 +1,1892 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/CurvedRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/RoadLine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/StraightRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/RoadIntersection.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/bmw/BmwX5.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/sick/protos/SickLms291.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/GenericTrafficLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/CrossRoadsTrafficLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/trees/protos/Oak.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/trees/protos/Pine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/trees/protos/Cypress.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/trees/protos/Sassafras.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/trees/protos/BigSassafras.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/PedestrianCrossing.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/CautionSign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/CautionPanel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/OrderSign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/OrderPanel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/StopSign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/StopPanel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/YieldSign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/SpeedLimitSign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/SpeedLimitPanel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/advertising_board/protos/AdvertisingBoard.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/HighwayPole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/HighwaySign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/Crossroad.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/tesla/TeslaModel3.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/range_rover/RangeRoverSportSVR.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/citroen/CitroenCZero.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/humans/pedestrian/protos/Pedestrian.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/FastFoodRestaurant.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/LargeResidentialTower.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/Hotel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/Museum.proto"
+
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 10
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.3699678044780298 -0.1933781403304769 0.9086961640130504 4.028440965182518
+  position 54.2695095680352 10.670118380356257 66.13251167954415
+  near 1
+  follow "vehicle"
+  followSmoothness 0
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Fog {
+  color 0.38 0.35 0.32
+  visibilityRange 1000
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/worlds/textures/ground.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 2000 2000
+      }
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+Museum {
+  translation 70.92 0 0
+}
+Hotel {
+}
+LargeResidentialTower {
+  translation -70.98 -7.44 0
+}
+FastFoodRestaurant {
+  translation -71.73 -30.1 0
+}
+CitroenCZero {
+  hidden position_0_0 -6.512500084003278e-07
+  hidden position2_0_0 0.010430056333673844
+  hidden position_0_1 -6.484552820638071e-07
+  hidden position2_0_1 0.010139655501774257
+  hidden position_0_2 1.6428353443822477e-05
+  hidden position_0_3 2.9188459086902535e-06
+  hidden linearVelocity_0 7.57794438633511e-08 -4.541511353287321e-09 5.598630480866047e-08
+  hidden angularVelocity_0 -1.0232216039545372e-08 1.7696804278573595e-07 1.6444836251854394e-07
+  hidden rotation_1 3.2562500356540907e-07 -0.9999999980506217 6.243917409214083e-05 0.010430056354033004
+  hidden linearVelocity_1 -5.652975223712628e-08 6.771137287541794e-08 -1.141767697276891e-09
+  hidden angularVelocity_1 -5.2096403342403326e-08 -1.9758522319210347e-07 1.6250064627433072e-07
+  hidden rotation_2 -3.2422764036887846e-07 0.9999999979550279 6.395184972831802e-05 0.010139655522509426
+  hidden linearVelocity_2 1.5440053889395283e-07 6.769499950250602e-08 -7.66110460404068e-10
+  hidden angularVelocity_2 -5.203977489511822e-08 5.412584195123796e-07 1.6261973308997617e-07
+  hidden rotation_3 0 -1 0 1.6428352820529346e-05
+  hidden linearVelocity_3 -1.5914532091692807e-06 -5.856416673932023e-08 3.880580668654529e-09
+  hidden angularVelocity_3 2.918759710315042e-08 -7.473727591526404e-06 1.5964003015909039e-07
+  hidden rotation_4 0 1 0 2.918802391695113e-06
+  hidden linearVelocity_4 1.6906635962784276e-06 -5.881645010843531e-08 -1.1838863874422181e-09
+  hidden angularVelocity_4 3.036551633973216e-08 7.8078155127867e-06 1.6210837226646845e-07
+  translation -127.27379401705545 9.541618117918821 0.18044052576840952
+  rotation 0.03173617402456082 -0.999383490824375 -0.01501510992198118 0.005071969108972089
+  color 0.52549 0.368627 0.235294
+  name "vehicle(9)"
+  controller "interdet"
+  sensorsSlotTop [
+    Camera {
+      translation 79.6028 32.9177 3.97772
+      rotation 0.21622496107226696 0.23601095751012507 -0.9473888294382885 1.85874
+      width 700
+      height 500
+    }
+  ]
+}
+TeslaModel3 {
+  hidden position_0_0 -0.04280656894985027
+  hidden position2_0_0 79902.86184951053
+  hidden position_0_1 -0.04174305579279545
+  hidden position2_0_1 79520.48698116658
+  hidden position_0_2 99930.5421503747
+  hidden position_0_3 99595.34491932571
+  hidden linearVelocity_0 5.5115265899973345 -0.0025018077613914195 -0.001978878050962703
+  hidden angularVelocity_0 0.005907794413743242 -0.0062405593310787795 0.06765872313870928
+  hidden rotation_1 -0.9594635972148706 -0.21884475816660792 0.17758540886711208 4.6798200134870465
+  hidden linearVelocity_1 5.457117845167961 0.1112677818175465 9.470173621861222e-05
+  hidden angularVelocity_1 -0.35363579344376095 15.155275848488586 0.06566494498041994
+  hidden rotation_2 0.9410361963832071 0.25814954780769944 -0.21865426605329774 1.6210273685584942
+  hidden linearVelocity_2 5.569321421677987 0.10907154999865323 -6.578139443659172e-05
+  hidden angularVelocity_2 -0.343758145048188 15.467022441498122 0.06706023614571092
+  hidden rotation_3 0.13423946388796715 -0.7007068171643049 0.7007065881769207 2.8747091087342582
+  hidden linearVelocity_3 5.455915536442116 -0.08818293513578292 6.727338880243886e-05
+  hidden angularVelocity_3 0.2847408803664821 15.3675182248131 0.0875803035487835
+  hidden rotation_4 -0.9226802435512665 -0.2726364032387176 0.27263631414254175 4.632003483983692
+  hidden linearVelocity_4 5.562636565846264 -0.09033213506433199 3.180343381142983e-05
+  hidden angularVelocity_4 0.2873692190917521 15.428510468388032 0.08846693156880733
+  translation 0.7434059259543164 -50.41420416742371 0.2574217215369018
+  rotation 0.04913685065880881 -0.7134726100488944 -0.6989580850218076 0.025592248282642928
+  color 0.568627 0.254902 0.67451
+  plate [
+    "../../Images/image3.png"
+  ]
+  name "vehicle(6)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      width 128
+    }
+  ]
+}
+TeslaModel3 {
+  hidden position_0_0 -1.1927737118166092e-05
+  hidden position2_0_0 98576.40749397855
+  hidden position_0_1 1.1931738079071971e-05
+  hidden position2_0_1 98919.75015134469
+  hidden position_0_2 98975.72016228054
+  hidden position_0_3 99416.19060517025
+  hidden linearVelocity_0 -11.783191827903083 11.783229551921233 0.00019659038562790015
+  hidden angularVelocity_0 -0.0006135768548460057 -0.0006136027822682876 -2.543755829558404e-08
+  hidden rotation_1 -0.9435119988787236 -0.2342972655365452 0.23428593498964734 4.654278804183452
+  hidden linearVelocity_1 -11.783253021981206 11.783294003031887 -6.976856317032688e-06
+  hidden angularVelocity_1 -32.726429779152596 -32.72862507519296 -0.0002925757257507085
+  hidden rotation_2 0.14983773430206446 -0.6991249790735601 0.6991229627287449 2.8441137430918526
+  hidden linearVelocity_2 -11.783256170226641 11.783290700062189 -6.960927295751341e-06
+  hidden angularVelocity_2 -32.728729679294496 -32.726324737843335 0.00029284056641493443
+  hidden rotation_3 0.055320000949593655 -0.7060240871562942 0.7060238564312528 3.0310652728158716
+  hidden linearVelocity_3 -11.783249628069104 11.783287410779984 7.258350994032692e-06
+  hidden angularVelocity_3 -32.73463060561924 -32.73552496170816 -0.0008410095410222217
+  hidden rotation_4 -0.1744811830805153 0.6962602364047841 -0.696260008870521 3.4870772079761085
+  hidden linearVelocity_4 -11.783249797069876 11.783287429504405 7.239856536664885e-06
+  hidden angularVelocity_4 -32.73562982336203 -32.734525847679144 0.0008412411401049509
+  translation -6404.428094661985 5908.452683914571 0.2730606536723618
+  rotation 0.0035006314381443907 -0.0014500129611877345 0.9999928214952079 2.3561992913522425
+  color 0.878431 0.105882 0.141176
+  plate [
+    "/home/ubuntu/Images/image7.png"
+  ]
+  name "vehicle(4)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      translation 0.72 0 -0.05
+      children [
+        Pose {
+          translation 0.05 0 0
+          rotation 0 -1 0 1.57
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.05
+              }
+            }
+          ]
+        }
+      ]
+      width 128
+    }
+  ]
+}
+RangeRoverSportSVR {
+  hidden position_0_0 -2.343216374432878e-07
+  hidden position2_0_0 141728.23056838664
+  hidden position_0_1 2.2439675044870187e-07
+  hidden position2_0_1 141388.25862004893
+  hidden position_0_2 141694.14491501282
+  hidden position_0_3 141357.86356533866
+  hidden linearVelocity_0 -11.784448510265028 -11.784424571506541 0.00044063320372692146
+  hidden angularVelocity_0 -0.00017441292778996623 0.000174001259059589 -7.492712114022017e-09
+  hidden rotation_1 1.1716081872164285e-07 -0.9999999999999865 -1.160403558212581e-07 4.702779643890839
+  hidden linearVelocity_1 -11.784463233988106 -11.784439313782396 1.748520807137413e-05
+  hidden angularVelocity_1 32.91742174694597 -32.917546444221614 -4.5250708400524044e-06
+  hidden rotation_2 1.1219837522435053e-07 0.9999999999999922 5.290617494983311e-08 4.022837893876424
+  hidden linearVelocity_2 -11.78446321420107 -11.784439373287643 1.7474297983111858e-05
+  hidden angularVelocity_2 32.91747930559963 -32.91748890839342 1.463411141788278e-06
+  hidden rotation_3 0 1 0 4.250132501216863
+  hidden linearVelocity_3 -11.784469763677077 -11.784445723569764 1.1684943262457788e-06
+  hidden angularVelocity_3 32.91741419817798 -32.91756136972459 -9.03534945474993e-06
+  hidden rotation_4 0 -1 0 1.239475587677458
+  hidden linearVelocity_4 -11.784469782648692 -11.784445744244639 1.15758394402392e-06
+  hidden angularVelocity_4 32.91749392325691 -32.91748166747645 6.005818309194441e-06
+  translation -28725.29310623162 -28617.426799874345 0.3022819214832905
+  rotation -0.004547922602663592 -0.001883821491994253 0.9999878837348913 -2.3562027513530475
+  name "vehicle(3)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      translation 0.72 0 -0.05
+      children [
+        Pose {
+          translation 0.05 0 0
+          rotation 0 -1 0 1.57
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.05
+              }
+            }
+          ]
+        }
+      ]
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+CurvedRoadSegment {
+  translation -64.5 4.5 0.02
+  rotation 0 0 1 1.5708
+  id "0"
+  startJunction "25"
+  endJunction "17"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+TeslaModel3 {
+  hidden position_0_0 0.00493775802076276
+  hidden position2_0_0 6536.420217461952
+  hidden position_0_1 0.005358262742518518
+  hidden position2_0_1 6680.502389525152
+  hidden position_0_2 7043.192668145037
+  hidden position_0_3 7140.184687599601
+  hidden linearVelocity_0 -2.505915053503784 16.471582785732547 0.0022584568939544047
+  hidden angularVelocity_0 0.013358781661883362 -0.0658053703808521 0.0029787304522798756
+  hidden rotation_1 0.4471548791015244 -0.6335832515558103 0.6313673870605512 2.295422409249299
+  hidden linearVelocity_1 -2.499055621705535 16.43701106213639 -0.005987621608401744
+  hidden angularVelocity_1 -45.59793273748304 -6.893226603905848 -0.9365774211228488
+  hidden rotation_2 -0.6145907145543089 -0.5561535675181329 0.5594385247017564 4.239406255820317
+  hidden linearVelocity_2 -2.515963694074468 16.48548533842681 0.04368999307161603
+  hidden angularVelocity_2 -45.91552530266517 -6.917365969063554 -0.9592108330947839
+  hidden rotation_3 -0.9835781096654872 -0.12762075229349865 0.12762071058769536 4.695831839514666
+  hidden linearVelocity_3 -2.507649385976082 16.48565552076176 0.0032738248641821623
+  hidden angularVelocity_3 -46.179862807280635 -7.064545271639135 -0.6335682547733466
+  hidden rotation_4 0.2337327838557232 0.6875206523053742 -0.6875204276271698 2.682371058036028
+  hidden linearVelocity_4 -2.5025250834243216 16.45747541753588 0.006869940146174128
+  hidden angularVelocity_4 -45.326573930336494 -6.947108402941302 -0.6070961127749441
+  translation 110.38443668772621 38.66696625677554 0.27689512921820436
+  rotation -0.0036662416494724973 -0.009184780563035833 0.9999510980433877 1.7212400256034701
+  plate [
+    "../../Images/Captures d’écran/Capture d’écran du 2026-02-10 19-27-32.png"
+  ]
+  name "vehicle(13)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+TeslaModel3 {
+  hidden position_0_0 -4.6602512781292016e-05
+  hidden position2_0_0 -0.0690198833005914
+  hidden position_0_1 4.66026998676718e-05
+  hidden position2_0_1 0.011154342539483823
+  hidden position_0_2 0.00018375642635257155
+  hidden position_0_3 0.00018282473901965504
+  hidden linearVelocity_0 -2.2598290898619317e-05 3.220611079564334e-07 2.881224080732005e-06
+  hidden angularVelocity_0 1.2855312320239653e-07 9.027471665611784e-06 6.0347509906844116e-12
+  hidden rotation_1 0.9988102415472777 0.0345058856495312 -0.03445932726868472 1.5719848576086188
+  hidden linearVelocity_1 -2.1255464761040124e-05 3.049509030648083e-07 -1.0295547723622583e-06
+  hidden angularVelocity_1 -8.679558372240732e-07 -5.869808514369937e-05 3.48394248279043e-08
+  hidden rotation_2 0.9999688954218784 0.00555375609442014 -0.005600355523743882 1.5708273649758029
+  hidden linearVelocity_2 -2.1255510657223984e-05 3.009365243702079e-07 -1.0295555234606078e-06
+  hidden angularVelocity_2 -8.051890379445183e-07 -5.869879148756325e-05 -3.482801447741928e-08
+  hidden rotation_3 0.9999999915583913 -9.187824268455575e-05 9.18782126592182e-05 1.5707960084416073
+  hidden linearVelocity_3 -8.908272102745138e-05 1.2638959079521366e-06 1.1658588908513745e-06
+  hidden angularVelocity_3 -4.429047102450332e-06 -0.0003139748458305035 -2.573517330031972e-06
+  hidden rotation_4 0.9999999916437761 9.141239887368694e-05 -9.141236900058535e-05 1.5707960083562196
+  hidden linearVelocity_4 -8.908235561424531e-05 1.2750886294163955e-06 1.165857722499416e-06
+  hidden angularVelocity_4 -4.519682500900631e-06 -0.00031397281784335725 2.573519035877114e-06
+  translation -59.78084929628988 -130.78931953601602 0.2729013239889959
+  rotation -0.0031800378266440134 -0.446327030606758 -0.8948642741271859 0.015922093461081956
+  name "vehicle(7)"
+  sensorsSlotTop [
+    Camera {
+      translation 29.1074 26.7716 1.30206
+      rotation -0.32368907914360795 0.13583503321234885 0.9363622289452747 3.06616
+      fieldOfView 1
+      width 500
+      height 600
+    }
+  ]
+}
+StraightRoadSegment {
+  translation -105 4.5 0.02
+  rotation 0 0 1 -1.5723853071795864
+  name "road(1)"
+  id "1"
+  startJunction "25"
+  endJunction "24"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 69
+}
+CurvedRoadSegment {
+  translation -64.5 -64.5 0.02
+  rotation 0 0 1 3.14156
+  name "road(2)"
+  id "2"
+  startJunction "23"
+  endJunction "24"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+StraightRoadSegment {
+  translation -64.5 -105 0.02
+  name "road(3)"
+  id "3"
+  startJunction "23"
+  endJunction "22"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 69
+}
+CurvedRoadSegment {
+  translation 4.5 -64.5 0.02
+  rotation 0 0 1 -1.5723853071795864
+  name "road(4)"
+  id "4"
+  startJunction "16"
+  endJunction "22"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+RoadIntersection {
+  translation 45 -45 0.02
+  rotation 0 0 1 0.785398
+  id "16"
+  connectedRoadIDs [
+    "11"
+    "4"
+    "10"
+    "5"
+  ]
+  roadsWidth 21.5
+  startRoadsLength [
+    8.75
+  ]
+  startRoadsNumberOfLanes 4
+  startRoadsStartLine [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_dashed.png"
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_dashed.png"
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_triangle.png"
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_triangle.png"
+  ]
+  startRoadsLine [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  startRoadBorder FALSE
+}
+StraightRoadSegment {
+  translation 45 4.5 0.02
+  rotation 0 0 1 -1.5708
+  name "road(5)"
+  id "5"
+  startJunction "28"
+  endJunction "16"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 30
+}
+CurvedRoadSegment {
+  translation 4.5 4.5 0.02
+  name "road(6)"
+  id "6"
+  startJunction "29"
+  endJunction "28"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+StraightRoadSegment {
+  translation -25.5 45 0.02
+  name "road(7)"
+  id "7"
+  startJunction "17"
+  endJunction "29"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 30
+}
+RoadIntersection {
+  translation -45 45 0.02
+  rotation 0 0 1 0.785398
+  name "road intersection(1)"
+  id "17"
+  connectedRoadIDs [
+    "7"
+    "8"
+    "0"
+    "15"
+  ]
+  roadsWidth 21.5
+  startRoadsLength [
+    8.75
+  ]
+  startRoadsNumberOfLanes 4
+  startRoadsStartLine [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_dashed.png"
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_dashed.png"
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_triangle.png"
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_triangle.png"
+  ]
+  startRoadsLine [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  startRoadBorder FALSE
+}
+TeslaModel3 {
+  hidden position_0_0 -0.004085835527085968
+  hidden position2_0_0 7197.467423269447
+  hidden position_0_1 -0.003836912575368838
+  hidden position2_0_1 7341.465252097123
+  hidden position_0_2 7150.763796291292
+  hidden position_0_3 7281.97132723798
+  hidden linearVelocity_0 -0.04993009296705008 -16.66395184915986 -0.0014427541975569479
+  hidden angularVelocity_0 0.0007260652249329814 0.037624554721700294 0.030659588900533746
+  hidden rotation_1 0.026368956310024966 0.7069178380399171 -0.7068039674507277 3.0830951670060354
+  hidden linearVelocity_1 0.0006467371191275651 -16.64526314901969 0.0019606399612205547
+  hidden angularVelocity_1 46.19029161206967 0.003694091273738806 0.12817019932939816
+  hidden rotation_2 0.15372193457282363 0.6989997452642853 -0.6984045553629019 2.8313007668915398
+  hidden linearVelocity_2 -9.837070013727842e-05 -16.68073320368043 -0.0025283090425684534
+  hidden angularVelocity_2 46.28462425329655 -0.008632894133805823 0.1290940205457008
+  hidden rotation_3 0.9407997571065705 -0.23968297246110837 0.23968289413394822 1.6317831192245893
+  hidden linearVelocity_3 -0.08821002135791324 -16.65930976511214 -0.0014709861285068444
+  hidden angularVelocity_3 46.417830297792996 -0.24508135274942378 0.3061547605961694
+  hidden rotation_4 -0.9857181656049596 0.11907919059222383 -0.11907915167775811 4.6980050018711115
+  hidden linearVelocity_4 -0.08823647571423787 -16.668194773703735 0.0014912851717419206
+  hidden angularVelocity_4 46.167290257436775 -0.2449123260944478 0.30637903312741116
+  translation -49.61093346968246 41.49761009505425 0.27338854001678287
+  rotation 0.0007138154705877296 0.006238905945290326 0.9999802830656611 -1.576852430211689
+  color 0.14902 0.635294 0.411765
+  plate [
+    "../../Images/Captures d’écran/Capture d’écran du 2026-02-10 19-31-49.png"
+  ]
+  name "vehicle(14)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+TeslaModel3 {
+  hidden position_0_0 -1.1931643058305383e-05
+  hidden position2_0_0 17135.69095949446
+  hidden position_0_1 1.1928042266497434e-05
+  hidden position2_0_1 17270.704395361354
+  hidden position_0_2 17017.08438059116
+  hidden position_0_3 17094.200854794326
+  hidden linearVelocity_0 11.783198047803214 -11.783223667540447 0.0001966429727423809
+  hidden angularVelocity_0 0.0006133987335646046 0.0006137758998886164 -1.973478954056597e-08
+  hidden rotation_1 -0.6258681907062649 0.5514893335289023 -0.5514966209016277 4.260030268515513
+  hidden linearVelocity_1 11.783259003707519 -11.783287863054861 -6.978146076361675e-06
+  hidden angularVelocity_1 32.7264126925736 32.72864172092629 -0.00029247416176796174
+  hidden rotation_2 -0.5000508485612428 0.6123547578351782 -0.6123485930495808 4.068981175228012
+  hidden linearVelocity_2 11.783262532915069 -11.783284959963117 -6.956503302885841e-06
+  hidden angularVelocity_2 32.728713710261175 32.72634243657465 0.00029285349553460536
+  hidden rotation_3 0.33175159867513526 -0.6670611544696002 0.6670609364774528 2.500939821582829
+  hidden linearVelocity_3 11.783255566645215 -11.78328123031331 7.2691696212145615e-06
+  hidden angularVelocity_3 32.73461372898728 32.73554169582947 -0.0008412042505038526
+  hidden rotation_4 -0.2846842562860738 0.6778477611280463 -0.6778475396108921 3.6962870432312886
+  hidden linearVelocity_4 11.783255935936559 -11.783281455846259 7.241736624618057e-06
+  hidden angularVelocity_4 32.73561309082939 32.73454267101485 0.0008410830115241719
+  translation 3193.5488874694 -3172.460075848163 0.2730606545622602
+  rotation -0.0035005237536231233 -0.008450979429580676 -0.9999581627648885 0.7854275157520902
+  color 1 0.745098 0.435294
+  name "vehicle(12)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+StraightRoadSegment {
+  translation -45 25.5 0.02
+  rotation 0 0 -1 1.5708
+  name "road(8)"
+  id "8"
+  startJunction "17"
+  endJunction "26"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "double"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 30
+}
+CurvedRoadSegment {
+  translation -4.5 -4.5 0.02
+  rotation 0 0 1 3.14156
+  name "road(9)"
+  id "9"
+  startJunction "27"
+  endJunction "26"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+TeslaModel3 {
+  hidden position_0_0 -0.014802892680513435
+  hidden position2_0_0 6249.503895949548
+  hidden position_0_1 -0.014399212186466979
+  hidden position2_0_1 6510.298780039321
+  hidden position_0_2 6948.303143715789
+  hidden position_0_3 7066.180267104117
+  hidden linearVelocity_0 -16.572140120399208 -1.9611389019651353 0.0006115557210722873
+  hidden angularVelocity_0 0.061888314345819886 0.006115764247142368 0.1026470172454402
+  hidden rotation_1 -0.30992601323812724 -0.6746161647750044 0.6699543988530745 3.760777317061334
+  hidden linearVelocity_1 -16.45059065789789 -2.118351481945234 -0.004379273295460889
+  hidden angularVelocity_1 5.872244564012243 -45.69142621462213 -0.40101141905837023
+  hidden rotation_2 0.8183887736728191 0.4122197684515013 -0.40039315381770674 1.762897760392764
+  hidden linearVelocity_2 -16.647481758098323 -2.141180097805685 0.019910364843623497
+  hidden angularVelocity_2 5.923549500791009 -46.29972678524828 -0.4095029790969631
+  hidden rotation_3 0.8257828487965655 0.398799943945099 -0.3987998136193329 1.7610609848975214
+  hidden linearVelocity_3 -16.523118279470285 -1.8299830788769234 -0.0006625294338762959
+  hidden angularVelocity_3 5.1271684658502705 -46.113768261244786 -0.105273805721854
+  hidden rotation_4 -0.26390589589451563 0.6820388486541473 -0.6820386257673668 3.6576390980130324
+  hidden linearVelocity_4 -16.651960704547143 -1.8414620028017292 0.00057967080675094
+  hidden angularVelocity_4 5.10679436073216 -45.90239697713678 -0.09679918991897732
+  translation 25.267469132687488 110.55834042470492 0.2754084565547011
+  rotation 0.002962953503898824 -0.002506726383470643 0.999992468586325 -3.0316197090022707
+  color 0.776471 0.27451 0
+  plate [
+    "../../Images/Captures d’écran/Capture d’écran du 2026-02-10 19-54-44.png"
+  ]
+  name "vehicle(16)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+TeslaModel3 {
+  hidden position_0_0 0.0977272536883504
+  hidden position2_0_0 13725.672484682778
+  hidden position_0_1 0.10371881744612553
+  hidden position2_0_1 13786.923668733018
+  hidden position_0_2 16832.912486970803
+  hidden position_0_3 16971.419289103535
+  hidden linearVelocity_0 -1.0842082061474245 -6.252445218748103 0.003345881485950005
+  hidden angularVelocity_0 0.015627103193508813 -0.003921527709537622 -0.19081900116934392
+  hidden rotation_1 -0.053662467131559186 -0.7051517769232278 0.707022850495915 3.1108021417307223
+  hidden linearVelocity_1 -1.419135629812473 -6.374168365549398 -0.00039486114046875424
+  hidden angularVelocity_1 17.680850179159528 -4.0383453781868 -0.1197193208888912
+  hidden rotation_2 0.5801534951303104 0.5466712953394763 -0.6037983247243602 2.1818654995495885
+  hidden linearVelocity_2 -1.3777403161628616 -6.051073884886454 -0.000569929185356263
+  hidden angularVelocity_2 16.77949315127745 -3.9379876793540713 -0.1024227249989337
+  hidden rotation_3 -0.9834538704408841 0.12809858594020132 -0.128098544078243 4.695705535451714
+  hidden linearVelocity_3 -0.8639414558990722 -6.438953256308043 0.0006124959385086855
+  hidden angularVelocity_3 17.67386569958305 -2.280309703003488 -0.26006107894856034
+  hidden rotation_4 -0.9322276528849724 -0.2558824397950077 0.25588235617394517 4.642268608627149
+  hidden linearVelocity_4 -0.8261722444966607 -6.131178112142771 0.0004944912427338296
+  hidden angularVelocity_4 17.504747272680245 -2.260905395932013 -0.2589798372401114
+  translation 39.01353354316718 -64.86605144947039 0.2543085197157755
+  rotation -0.01198358111829023 -0.007009365209022619 -0.9999036266475624 1.6999975212211456
+  plate [
+    "../../Images/image8.png"
+  ]
+  name "vehicle(10)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+StraightRoadSegment {
+  translation -4.5 -45 0.02
+  name "road(10)"
+  id "10"
+  startJunction "27"
+  endJunction "16"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 30
+}
+TeslaModel3 {
+  hidden position_0_0 0.08798495663505225
+  hidden position2_0_0 6482.510236087439
+  hidden position_0_1 0.09320132134064489
+  hidden position2_0_1 6576.076294639167
+  hidden position_0_2 6950.8490491224065
+  hidden position_0_3 7043.583817359307
+  hidden linearVelocity_0 -16.622505018362787 0.2436250010011874 -0.011847420043032216
+  hidden angularVelocity_0 -0.09899583079715905 -0.011084486963377061 -0.5336028300376549
+  hidden rotation_1 0.5324675953582794 0.5758354184055582 -0.6203965109533317 2.246863879997531
+  hidden linearVelocity_1 -17.09085731274146 1.127500360383625 -0.0007579526855479166
+  hidden angularVelocity_1 -3.1483439241756552 -47.53389679145715 -1.8590749785356495
+  hidden rotation_2 -0.22812615722352303 0.700490185161289 -0.6762188675888388 3.710400131061302
+  hidden linearVelocity_2 -16.194439702619526 1.14572523500149 -0.022605120598492935
+  hidden angularVelocity_2 -3.2289200097374695 -44.99529373367258 -1.7511211258956167
+  hidden rotation_3 0.5483747291434278 -0.5913059212284684 0.5913057279927405 2.138403286229628
+  hidden linearVelocity_3 -17.028327323108762 -0.43670813000326736 -0.005833041971860947
+  hidden angularVelocity_3 1.0460294567002968 -47.252198753880364 -2.1268522846998628
+  hidden rotation_4 -0.9955881581524013 -0.06634840700379595 0.06634838532147974 4.707967718842363
+  hidden linearVelocity_4 -16.188788885569522 -0.421084164476492 -0.012860686005905972
+  hidden angularVelocity_4 0.9917385078985602 -45.278493220247455 -2.066521560883237
+  translation 5.544476299012631 -99.1487216836539 0.2843834141409027
+  rotation -0.001639440522244086 0.015739042946149428 -0.9998747895421274 3.120928792753375
+  color 0.964706 0.380392 0.317647
+  plate [
+    "../../Images/Captures d’écran/Capture d’écran du 2026-02-10 19-50-20.png"
+  ]
+  name "vehicle(15)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+CurvedRoadSegment {
+  translation 64.5 -4.5 0.02
+  rotation 0 0 1 -1.5708
+  name "road(11)"
+  id "11"
+  startJunction "21"
+  endJunction "16"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+StraightRoadSegment {
+  translation 105 -4.5 0.02
+  rotation 0 0 1 1.57079
+  name "road(12)"
+  id "12"
+  startJunction "21"
+  endJunction "20"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 69
+}
+CurvedRoadSegment {
+  translation 64.5 64.5 0.02
+  name "road(13)"
+  id "13"
+  startJunction "19"
+  endJunction "20"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+StraightRoadSegment {
+  translation 64.5 105 0.02
+  rotation 0 0 1 3.14156
+  name "road(14)"
+  id "14"
+  startJunction "19"
+  endJunction "18"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 69
+}
+CurvedRoadSegment {
+  translation -4.5 64.5 0.02
+  rotation 0 0 1 1.5708
+  name "road(15)"
+  id "15"
+  startJunction "17"
+  endJunction "18"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+    RoadLine {
+      type "double"
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "continuous"
+      width 0.3
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 40.5
+}
+Pedestrian {
+  translation -58.8168 35.5775 1.27
+  rotation 0 0 1 1.8326
+}
+BmwX5 {
+  hidden position_0_0 -0.06714093742123074
+  hidden position2_0_0 27381.952757690164
+  hidden position_0_1 -0.062064867780721025
+  hidden position2_0_1 27920.847651637683
+  hidden position_0_2 27065.99721969512
+  hidden position_0_3 27618.67679551359
+  hidden linearVelocity_0 1.7876003740444044e-06 -7.1682960522528556e-06 -2.061099685488447e-05
+  hidden angularVelocity_0 1.6033399585502074e-05 4.018910441377917e-06 6.56264995276573e-10
+  hidden rotation_1 -0.031198823396048316 0.9290040801038554 0.36875202042713123 0.18164346282304356
+  hidden linearVelocity_1 1.5312048131500557e-06 -6.107439713046294e-06 1.9506695986064704e-07
+  hidden angularVelocity_1 1.629173987962118e-05 4.087548081454237e-06 6.559009839487507e-10
+  hidden rotation_2 0.03101413831720976 -0.9990896017230627 0.02929318953771995 1.6287627754184582
+  hidden linearVelocity_2 1.5319442141977212e-06 -6.112186400666336e-06 1.644341369328536e-07
+  hidden angularVelocity_2 1.629393723080546e-05 4.086435298809131e-06 6.51261974896415e-10
+  hidden rotation_3 0 1 0 1.9650836345382494
+  hidden linearVelocity_3 1.6136888702652555e-06 -6.537540400806362e-06 -1.011185186919209e-06
+  hidden angularVelocity_3 1.748172302607011e-05 4.307257987889943e-06 5.505323930347136e-10
+  hidden rotation_4 0 -1 0 2.205814847871093
+  hidden linearVelocity_4 1.6145840470141747e-06 -6.54171374414428e-06 -1.0418264200226448e-06
+  hidden angularVelocity_4 1.749283102259314e-05 4.309514306846796e-06 5.498050507705992e-10
+  translation 85.49343960586057 -59.92090204841074 0.3169238474041618
+  rotation 0.002274509006216858 -0.001803067894339157 0.9999957877686032 1.7697710515741318
+  controller "ai"
+  sensorsSlotFront [
+    SickLms291 {
+      translation 0.06 0 0
+    }
+  ]
+  sensorsSlotTop [
+    Camera {
+      translation 42.805 40.0985 -1.22
+      rotation 0 0 1 -3.1415853071795863
+      children [
+        Pose {
+          translation -0.05 0 0
+          rotation 0 -1 0 1.5708
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.8 0.8 0.8
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.04
+              }
+            }
+          ]
+        }
+      ]
+      fieldOfView 1
+      width 500
+      height 500
+    }
+  ]
+  sensorsSlotCenter [
+    GPS {
+    }
+    Gyro {
+    }
+    Display {
+      width 200
+      height 150
+    }
+  ]
+}
+GenericTrafficLight {
+  translation -34.665 55.2732 0
+  startGreen FALSE
+  greenTime 10
+  redTime 10
+  state "red"
+}
+CrossRoadsTrafficLight {
+  translation 45 -45 0
+}
+DEF STONES Solid {
+  translation 5.03891 -136.158 -4.23581
+  children [
+    DEF STONES_GROUP Group {
+      children [
+        Pose {
+          translation 0 2 -0.6
+          children [
+            Shape {
+              appearance DEF OBJECTS_APPEARANCE PBRAppearance {
+                baseColor 0.5 0.5 0.5
+                roughness 1
+                metalness 0
+              }
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0.5 -3.5 -0.3
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 4 2 -0.15
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 6 -1 0
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 9 0 0.15
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 5.5 -5 0.2
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 0.05
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 10 5 0
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 1 6 0.3
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 13 -4 0
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 13.5 1.5 0.4
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 5
+                subdivision 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE STONES_GROUP
+}
+Oak {
+  translation 81.7751 -19.8126 0
+}
+Pine {
+  translation 50.4097 -99.1307 0
+  name "tree(1)"
+}
+Cypress {
+  translation 56.567 -81.7163 0
+  name "tree(2)"
+}
+Sassafras {
+  translation -36.8744 -75.9885 0
+  name "tree(3)"
+}
+BigSassafras {
+  translation -35.4355 -54.5924 0
+  name "tree(4)"
+}
+Oak {
+  translation 61.566 5.24018 0
+  name "tree(5)"
+}
+Pine {
+  translation -26.6541 -68.7408 0
+  name "tree(6)"
+}
+Cypress {
+  translation 26.6454 -62.6042 0
+  name "tree(7)"
+}
+Sassafras {
+  translation 68.1255 79.3778 0
+  name "tree(8)"
+}
+BigSassafras {
+  translation 121.7561 79.9763 0
+  name "tree(9)"
+}
+Oak {
+  translation 45.3761 87.5263 0
+  name "tree(10)"
+}
+Pine {
+  translation 4.80322 63.11 0
+  name "tree(11)"
+}
+Cypress {
+  translation -85.4708 4.92425 0
+  name "tree(12)"
+}
+Sassafras {
+  translation -85.8355 -9.61883 0
+  name "tree(13)"
+}
+BigSassafras {
+  translation -84.6727 -24.9703 0
+  name "tree(14)"
+}
+Oak {
+  translation -76.3128 81.8021 0
+  name "tree(15)"
+}
+Pine {
+  translation 81.4509 120.797 0
+  name "tree(16)"
+}
+Cypress {
+  translation -106.804 42.6205 0
+  name "tree(17)"
+}
+Sassafras {
+  translation -32.2671 115.416 0
+  name "tree(18)"
+}
+BigSassafras {
+  translation 121.921 33.1395 0
+  name "tree(19)"
+}
+PedestrianCrossing {
+  translation -61.4608 45.0693 -0.06
+  rotation 0 0 1 -1.5707853071795865
+  name "pedestrian crossing(1)"
+}
+CautionSign {
+  translation -91.9275 48.9391 0
+  signBoards [
+    CautionPanel {
+      translation 0 0 -0.17
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/turn_left.jpg"
+      ]
+    }
+  ]
+}
+CautionSign {
+  translation 8.87679 55.4925 0
+  name "caution sign(1)"
+}
+CautionSign {
+  translation 33.842 10.5534 0
+  rotation 0 0 1 1.7017
+  name "caution sign(2)"
+  signBoards [
+    CautionPanel {
+      translation 0 0 -0.17
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/bump.jpg"
+      ]
+    }
+  ]
+}
+CautionSign {
+  translation 84.01191 -26.81263 0
+  rotation 0 0 1 0.6545
+  name "caution sign(3)"
+  signBoards [
+    CautionPanel {
+      translation 0 0 -0.17
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/cross_roads.jpg"
+      ]
+    }
+  ]
+}
+CautionSign {
+  translation -5.43669 -34.1146 0
+  rotation 0 0 1 -0.5236
+  name "caution sign(4)"
+  signBoards [
+    CautionPanel {
+      translation 0 0 -0.17
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/turn_right.jpg"
+      ]
+    }
+  ]
+}
+OrderSign {
+  translation -45.1363 34.6769 0
+  rotation 0 0 1 1.5708
+}
+OrderSign {
+  translation -55.4085 34.1742 0
+  rotation 0 0 1 1.5708
+  name "order sign(1)"
+}
+OrderSign {
+  translation -67.6589 34.4983 0
+  rotation 0 0 1 3.14159
+  name "order sign(2)"
+  signBoards [
+    OrderPanel {
+      translation 0.026 0 -0.175
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/no_right_turn.jpg"
+      ]
+    }
+  ]
+}
+OrderSign {
+  translation 5.21302 94.5041 0
+  rotation 0 0 1 3.14159
+  name "order sign(3)"
+  signBoards [
+    OrderPanel {
+      translation 0.026 0 -0.175
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/no_pedestrian_crossing.jpg"
+      ]
+    }
+  ]
+}
+StopSign {
+  translation -34.6012 34.2884 0
+  rotation 0 0 1 -1.5708
+  signBoards [
+    StopPanel {
+      translation 0 0 -0.097
+    }
+    OrderPanel {
+      translation -0.03 0 -0.11
+      rotation 0 0 1 3.1415926
+    }
+  ]
+}
+YieldSign {
+  translation -55.468 66.4958 0
+  rotation 0 0 1 1.5708
+}
+SpeedLimitSign {
+  translation -113.192 20.4404 0
+  rotation 0 0 1 0.9163
+  signBoards [
+    SpeedLimitPanel {
+      translation 0.023 0 0
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/speed_limit_55.jpg"
+      ]
+    }
+  ]
+}
+SpeedLimitSign {
+  translation 26.49986 -84.257796 0
+  rotation 0 0 1 0.6545
+  name "speed limit(1)"
+  signBoards [
+    SpeedLimitPanel {
+      translation 0.023 0 0
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/speed_limit_55.jpg"
+      ]
+    }
+  ]
+}
+SpeedLimitSign {
+  translation -30.317445 79.098744 0
+  rotation 0 0 1 -2.3562
+  name "speed limit(2)"
+  signBoards [
+    SpeedLimitPanel {
+      translation 0.023 0 0
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/speed_limit_65.jpg"
+      ]
+    }
+  ]
+}
+SpeedLimitSign {
+  translation 87.1538 -50.335 0
+  rotation 0 0 1 -3.14159
+  name "speed limit(3)"
+  signBoards [
+    SpeedLimitPanel {
+      translation 0.023 0 0
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/speed_limit_65.jpg"
+      ]
+    }
+  ]
+}
+SpeedLimitSign {
+  translation 31.0289 -34.4459 0
+  name "speed limit(4)"
+  signBoards [
+    SpeedLimitPanel {
+      translation 0.023 0 0
+      signImage [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/signs/us/one_way_sign_left.jpg"
+      ]
+    }
+  ]
+}
+AdvertisingBoard {
+  translation 48.100535 -116.28367 0
+  rotation 0 0 1 2.61799
+  backTexture []
+  displayBackLight TRUE
+  displayWidth 8
+  displayHeight 6
+  frameThickness 0.9
+  frameColor 0.52549 0.52549 0.52549
+  poleNumber 2
+  poleHeight 11
+  baseRatio 5.8
+}
+HighwayPole {
+  translation -17.67 -117.85 0
+  rotation 0 0 -1 3.14159
+  height 9
+  length 12
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -4.56 0
+      name "horizontal highway sign"
+      height 4
+      length 5.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      name "vertical highway sign"
+      height 2.5
+      length 3
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+Crossroad {
+  translation -4.5001488 105 0
+  id "18"
+  shape []
+  connectedRoadIDs [
+    "15"
+    "14"
+  ]
+}
+Crossroad {
+  translation 64.499851 105 0
+  name "crossroad(1)"
+  id "19"
+  shape []
+  connectedRoadIDs [
+    "13"
+    "14"
+  ]
+}
+Crossroad {
+  translation 104.99978 64.500074 0
+  name "crossroad(2)"
+  id "20"
+  shape []
+  connectedRoadIDs [
+    "12"
+    "13"
+  ]
+}
+Crossroad {
+  translation 105 -4.4999256 0
+  name "crossroad(3)"
+  id "21"
+  shape []
+  connectedRoadIDs [
+    "11"
+    "12"
+  ]
+}
+Crossroad {
+  translation 4.5 -104.99975 0
+  name "crossroad(4)"
+  id "22"
+  shape []
+  connectedRoadIDs [
+    "3"
+    "4"
+  ]
+}
+Crossroad {
+  translation -64.5 -105 0
+  name "crossroad(5)"
+  id "23"
+  shape []
+  connectedRoadIDs [
+    "2"
+    "3"
+  ]
+}
+Crossroad {
+  translation -104.99987 -64.499926 0
+  name "crossroad(6)"
+  id "24"
+  shape []
+  connectedRoadIDs [
+    "1"
+    "2"
+  ]
+}
+Crossroad {
+  translation -105 4.4999794 0
+  name "crossroad(7)"
+  id "25"
+  shape []
+  connectedRoadIDs [
+    "0"
+    "1"
+  ]
+}
+Crossroad {
+  translation -44.999865 -4.4999256 0
+  name "crossroad(8)"
+  id "26"
+  shape []
+  connectedRoadIDs [
+    "8"
+    "9"
+  ]
+}
+Crossroad {
+  translation -4.5 -45 0
+  name "crossroad(9)"
+  id "27"
+  shape []
+  connectedRoadIDs [
+    "9"
+    "10"
+  ]
+}
+Crossroad {
+  translation 45 4.5000744 0
+  name "crossroad(10)"
+  id "28"
+  shape []
+  connectedRoadIDs [
+    "6"
+    "5"
+  ]
+}
+Crossroad {
+  translation 4.4998512 45.00011 0
+  name "crossroad(11)"
+  id "29"
+  shape []
+  connectedRoadIDs [
+    "7"
+    "6"
+  ]
+}
+TeslaModel3 {
+  hidden position_0_0 0.08551520451332285
+  hidden position2_0_0 11720.977242370911
+  hidden position_0_1 0.09060874322368354
+  hidden position2_0_1 11903.86260240784
+  hidden position_0_2 17700.358191000767
+  hidden position_0_3 17901.16041994765
+  hidden linearVelocity_0 -5.596765023929832 15.648661874753977 0.0038552852898978388
+  hidden angularVelocity_0 0.0005918912351963875 -0.012326223535834594 -0.4995158405142171
+  hidden rotation_1 -0.07816458738504427 0.7095627458873126 -0.7002935148405868 3.416809143016027
+  hidden linearVelocity_1 -4.974440786765551 16.333390251104824 0.005173070450238792
+  hidden angularVelocity_1 -45.52602744404451 -13.805434034643849 -1.8088258537389
+  hidden rotation_2 -0.09905983061360715 0.7095409605790279 -0.6976666648331377 3.464470463860967
+  hidden linearVelocity_2 -4.670494016550695 15.579807794732151 -3.1969780024295336e-05
+  hidden angularVelocity_2 -43.4412443476064 -12.936007772662952 -1.7438191341071934
+  hidden rotation_3 -0.9095049901129044 0.2939393895262312 -0.2939392934683488 4.6176764338067064
+  hidden linearVelocity_3 -6.339436490139764 15.795987600582189 0.0017423359831165866
+  hidden angularVelocity_3 -44.14227144481915 -17.55394712630588 -1.8719980942034589
+  hidden rotation_4 -0.9675038959049805 -0.17879629792408122 0.17879623949436965 4.67935948708039
+  hidden linearVelocity_4 -6.037359457604252 15.034477424784848 0.0009911394125081388
+  hidden angularVelocity_4 -41.86331666117912 -16.648702638728633 -1.797982223370961
+  translation -96.5123774854899 -76.62358567927289 0.27734243830242694
+  rotation -0.006396034614947105 -0.01581881713929857 0.9998544172855955 1.945671218902915
+  color 0.976471 0.941176 0.419608
+  plate [
+    "/home/ubuntu/Images/image5.png"
+  ]
+  name "vehicle(2)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      translation 0.72 0 -0.05
+      children [
+        Pose {
+          translation 0.05 0 0
+          rotation 0 -1 0 1.57
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.04
+              }
+            }
+          ]
+        }
+      ]
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
+TeslaModel3 {
+  hidden position_0_0 0.0720759086649048
+  hidden position2_0_0 98738.33377824521
+  hidden position_0_1 0.07562088143446406
+  hidden position2_0_1 97713.12306150568
+  hidden position_0_2 100293.60736076017
+  hidden position_0_3 99585.9617403371
+  hidden linearVelocity_0 10.00313513136556 13.277083771590592 -0.010690591241993931
+  hidden angularVelocity_0 0.034050995711437354 0.04277675549942384 -0.42718267697489376
+  hidden rotation_1 -0.46039463621937193 -0.611727293211685 0.6432934771007223 3.9285834414430254
+  hidden linearVelocity_1 10.791022721218432 13.148789545523082 0.011332670577578127
+  hidden angularVelocity_1 -36.50474349645602 29.979248054168213 -0.9231179032049721
+  hidden rotation_2 0.03232862259034573 -0.708968029045963 0.7044992504978934 2.9704159680519693
+  hidden linearVelocity_2 10.380668412161656 12.5703762457763 -0.008923803162704434
+  hidden angularVelocity_2 -34.9246203107813 28.899471958167076 -0.899463369340831
+  hidden rotation_3 0.6416355547636058 -0.5423578187497126 0.5423576415099669 2.000647103173974
+  hidden linearVelocity_3 9.763004563361758 13.871450540393562 -0.005105477987643445
+  hidden angularVelocity_3 -38.51952562867906 27.26953918897407 -1.0704724781430401
+  hidden rotation_4 0.21954077793495513 -0.6898558392402419 0.6898556137988994 2.70936803473669
+  hidden linearVelocity_4 9.3616901260801 13.306350313455596 -0.006862849844730144
+  hidden angularVelocity_4 -37.03274680970078 26.22460588642177 -1.0461185927497942
+  translation -94.3003270782864 22.058124391700506 0.2805681170711013
+  rotation -0.010275849199803047 -0.008762591299454725 0.9999088078004621 0.9530977470899004
+  color 0.2 0.819608 0.478431
+  plate [
+    "/home/ubuntu/Images/image6.png"
+  ]
+  name "vehicle(5)"
+  controller "cont"
+  sensorsSlotTop [
+    Camera {
+      translation 0.72 0 -0.05
+      children [
+        Pose {
+          translation 0.05 0 0
+          rotation 0 -1 0 1.57
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.04
+              }
+            }
+          ]
+        }
+      ]
+      fieldOfView 1
+      width 128
+    }
+  ]
+}
