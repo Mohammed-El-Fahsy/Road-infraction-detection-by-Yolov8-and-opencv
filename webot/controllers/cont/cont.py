@@ -2,9 +2,6 @@ from controller import Robot, Camera
 from vehicle import Driver
 import math
 
-# =====================
-# PARAMÈTRES
-# =====================
 TIME_STEP = 50
 SPEED = 60.0  # km/h
 
@@ -19,10 +16,6 @@ YELLOW_REF = (95, 187, 203)
 COLOR_THRESHOLD = 30
 
 FILTER_SIZE = 3
-
-# =====================
-# INITIALISATION
-# =====================
 driver = Driver()
 
 camera = driver.getDevice("camera")
@@ -36,10 +29,7 @@ driver.setCruisingSpeed(SPEED)
 driver.setBrakeIntensity(0.0)
 
 print("=== CONTROLEUR PYTHON DEMARRE ===")
-
-# =====================
 # OUTILS
-# =====================
 def color_diff(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])
 
@@ -64,10 +54,7 @@ def detect_yellow_line(image):
     mean_x = sum_x / count
     angle = (mean_x / width - 0.5) * fov
     return angle
-
-# =====================
 # FILTRE
-# =====================
 angle_buffer = [0.0] * FILTER_SIZE
 
 def filter_angle(new_angle):
@@ -76,10 +63,7 @@ def filter_angle(new_angle):
     angle_buffer.pop(0)
     angle_buffer.append(new_angle)
     return sum(angle_buffer) / FILTER_SIZE
-
-# =====================
 # PID
-# =====================
 prev_error = 0.0
 integral = 0.0
 
@@ -97,10 +81,7 @@ def pid_control(error):
     prev_error = error
 
     return KP * error + KI * integral + KD * derivative
-
-# =====================
 # BOUCLE PRINCIPALE
-# =====================
 while driver.step() != -1:
     image = camera.getImage()
     angle = detect_yellow_line(image)
